@@ -6,7 +6,7 @@ use App\Http\Controllers\C_Users;
 use App\Http\Controllers\C_Categories;
 use App\Http\Controllers\C_Products;
 use App\Http\Controllers\C_News;
-use App\Http\Controllers\C_Mahasiswa;
+use App\Http\Controllers\C_Landing;
 use App\Http\Controllers\C_User;
 use App\Http\Controllers\C_Register;
 use App\Http\Controllers\C_Login;
@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [C_Landing::class, 'index'])->name('landing');
 // Route::get('/register', [C_Register::class, 'index']);
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
