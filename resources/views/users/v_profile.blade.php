@@ -31,11 +31,11 @@ My Profile
               <?php if (Auth::user()->level == 1) { ?>
                 <span>Admin</span>
               <?php } else if(Auth::user()->level == 2) {?>
-                <span>User</span>
+                <span>Admin</span>
               <?php } else if(Auth::user()->level == 3) {?>
-                <span>Mahasiswa</span>
+                <span>Admin</span>
               <?php } else if(Auth::user()->level == 4) {?>
-                <span>Dosen</span>
+                <span>Admin</span>
               <?php }?>
             </h3>
           </div>
@@ -121,16 +121,16 @@ My Profile
                 </div>
 
                 <div class="row">
-                  <div class="col-lg-3 col-md-4 label">Email</div>
+                  <div class="col-lg-3 col-md-4 label">Role</div>
                   <div class="col-lg-9 col-md-8">
                     <?php if (Auth::user()->level == 1) { ?>
                       <span>Admin</span>
                     <?php } else if(Auth::user()->level == 2) {?>
-                      <span>User</span>
+                      <span>Admin</span>
                     <?php } else if(Auth::user()->level == 3) {?>
-                      <span>Mahasiswa</span>
+                      <span>Admin</span>
                     <?php } else if(Auth::user()->level == 4) {?>
-                      <span>Dosen</span>
+                      <span>Admin</span>
                     <?php }?>
                   </div>
                 </div>

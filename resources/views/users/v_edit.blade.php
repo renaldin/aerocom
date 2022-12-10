@@ -66,7 +66,7 @@ Edit User
                   @enderror
                 </div>
               </div>
-              <div class="col-md-6">
+              {{-- <div class="col-md-6">
                 <label for="inputState" class="form-label">Role</label>
                 <select id="inputState" class="form-select" name="level" value="{{$user->level}}" placeholder="Enter Role...">
                   <option value="{{$user->level}}">{{$user->level === 1 ? 'Admin': 'Non Admin'}}</option>
@@ -78,7 +78,7 @@ Edit User
                     {{ $message}}
                   @enderror
                 </div>
-              </div>
+              </div> --}}
               <div class="col-md-6">
                 <img src="{{url('foto_user/'.$user->photo)}}" width="100px">
               </div>

@@ -66,7 +66,7 @@ Add User
                   @enderror
                 </div>
               </div>
-              <div class="col-md-6">
+              {{-- <div class="col-md-6">
                 <label for="inputState" class="form-label">Role</label>
                 <select id="inputState" class="form-select" name="level" value="{{ old('level')}}" placeholder="Enter Role...">
                   <option>Choose...</option>
@@ -78,7 +78,7 @@ Add User
                     {{ $message}}
                   @enderror
                 </div>
-              </div>
+              </div> --}}
               <div class="text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <button type="reset" class="btn btn-secondary">Reset</button>

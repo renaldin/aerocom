@@ -40,13 +40,11 @@ class C_Users extends Controller
             'name'              => 'required',
             'email'             => 'required|unique:users,email',
             'password'          => 'required',
-            'level'             => 'required',
             'photo'             => 'required|mimes:jpg,jpeg,png,bmp|max:1024',
         ], [
             'name.required'     => 'Full Name is required !',
             'email.required'    => 'Email is required !',
             'password.required' => 'Password is required !',
-            'level.required'    => 'Role is required !',
             'photo.required'    => 'Photo is required !',
             'email.unique'      => 'Email already exist !',
             'photo.mimes'       => 'Photo is jpg, jpeg, png !',
@@ -60,7 +58,7 @@ class C_Users extends Controller
             'name' => Request()->name,
             'email' => Request()->email,
             'password' => Hash::make(Request()->password),
-            'level' => Request()->level,
+            'level' => 1,
             'photo' => $fileName,
         ];
 
@@ -88,13 +86,11 @@ class C_Users extends Controller
             'name'              => 'required',
             'email'             => 'required',
             'password'          => 'required',
-            'level'             => 'required',
             'photo'             => 'mimes:jpg,jpeg,png,bmp|max:1024',
         ], [
             'name.required'     => 'Full Name is required !',
             'email.required'    => 'Email is required !',
             'password.required' => 'Password is required !',
-            'level.required'    => 'Role is required !',
             'photo.mimes'       => 'Photo is jpg, jpeg, png !',
         ]);
 
@@ -112,7 +108,7 @@ class C_Users extends Controller
                 'name' => Request()->name,
                 'email' => Request()->email,
                 'password' => Hash::make(Request()->password),
-                'level' => Request()->level,
+                'level' => 1,
                 'photo' => $fileName,
             ];
             $this->M_Users->edit($id_user, $data);
@@ -122,7 +118,7 @@ class C_Users extends Controller
                 'name' => Request()->name,
                 'email' => Request()->email,
                 'password' => Hash::make(Request()->password),
-                'level' => Request()->level,
+                'level' => 1,
             ];
             $this->M_Users->edit($id_user, $data);
         }
