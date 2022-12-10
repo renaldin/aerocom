@@ -33,4 +33,9 @@ class M_Categories extends Model
     {
         DB::table('categories')->where('id_categories', $id_categories)->delete();
     }
+
+    public function numberOfCategories()
+    {
+        return DB::table('categories')->count();
+    }
 }

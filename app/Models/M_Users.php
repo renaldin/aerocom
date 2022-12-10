@@ -32,4 +32,9 @@ class M_Users extends Model
     {
         DB::table('users')->where('id', $id_user)->delete();
     }
+
+    public function numberOfUsers()
+    {
+        return DB::table('users')->count();
+    }
 }

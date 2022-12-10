@@ -16,6 +16,15 @@ class M_News extends Model
             ->get();
     }
 
+    public function threeNew($number)
+    {
+        return DB::table('news')
+            ->join('users', 'users.id', '=', 'news.id_users', 'left')
+            ->orderBy('id_news', 'DESC')
+            ->limit($number)
+            ->get();
+    }
+
     public function detail($id_news)
     {
         return DB::table('news')

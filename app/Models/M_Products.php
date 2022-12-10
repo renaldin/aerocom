@@ -39,4 +39,9 @@ class M_Products extends Model
     {
         DB::table('products')->where('id_products', $id_products)->delete();
     }
+
+    public function numberOfProducts()
+    {
+        return DB::table('products')->count();
+    }
 }

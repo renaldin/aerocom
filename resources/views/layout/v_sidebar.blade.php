@@ -30,7 +30,7 @@
     </li><!-- End Profile Page Nav -->
     <li class="nav-item">
       <a class="nav-link {{ $sidebarTitle === 'News' ? '':'collapsed'  }}" href="{{ route('news') }}">
-        <i class="bi bi-intersect"></i>
+        <i class="bi bi-boxes"></i>
         <span>Manage News</span>
       </a>
     </li><!-- End Profile Page Nav -->
