@@ -80,14 +80,35 @@ Data Products
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Information</h5>
+        <h5 class="modal-title">Detail</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        You cannot delete or edit this data, because this data is your own data!!!
+        <div class="row">
+          <div class="col-md-6">
+            <label for="inputName5" class="form-label">Product Name</label>
+            <input type="text" class="form-control" id="inputName5" name="products_name" value="{{ $item->products_name }}" disabled>
+          </div>
+          <div class="col-md-6">
+            <label for="inputEmail5" class="form-label">Categorie Name</label>
+            <input type="text" class="form-control" id="inputName5" name="id_categories" value="{{ $item->categories_name }}" disabled>
+          </div>
+          <div class="col-md-12">
+            <label for="inputCity" class="form-label">Image</label>
+            <div class="row">
+              <div class="col-12">
+                <img src="{{url('foto_product/'.$item->image)}}" width="100px">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <label for="inputState" class="form-label">Description</label>
+            <textarea name="description" class="form-control" cols="30" rows="5" disabled>{{ $item->description }}</textarea>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
       </div>
     </div>
   </div>
