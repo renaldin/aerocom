@@ -42,7 +42,6 @@ Data Products
                   <th>No</th>
                   <th>Products Name</th>
                   <th>Categories Name</th>
-                  <th>Description </th>
                   <th>Image</th>
                   <th>Action</th>
                 </tr>

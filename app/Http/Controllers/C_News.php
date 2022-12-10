@@ -96,44 +96,48 @@ class C_News extends Controller
             'news_image.mimes'      => 'Image is jpg, jpeg, png !',
         ]);
 
-        if (Request()->image <> "") {
-            $product = $this->M_Products->detail($id_news);
-            if ($product->image <> "") {
-                unlink(public_path('foto_product') . '/' . $product->image);
+        if (Request()->news_image <> "") {
+            $news = $this->M_News->detail($id_news);
+            if ($news->news_image <> "") {
+                unlink(public_path('foto_news') . '/' . $news->news_image);
             }
 
-            $file = Request()->image;
-            $fileName = date('mdYHis') . Request()->id . '.' . $file->extension();
-            $file->move(public_path('foto_product'), $fileName);
+            $file = Request()->news_image;
+            $fileName = date('mdYHis') . Request()->id_news . '.' . $file->extension();
+            $file->move(public_path('foto_news'), $fileName);
 
             $data = [
-                'products_name' => Request()->products_name,
-                'id_categories' => Request()->id_categories,
-                'description'   => Request()->description,
-                'image'         => $fileName,
+                'id_users'      => Auth::user()->id,
+                'title'         => Request()->title,
+                'news'          => Request()->news,
+                'status'        => Request()->status,
+                'date'          => Request()->date,
+                'news_image'    => $fileName,
             ];
-            $this->M_Products->edit($id_news, $data);
+            $this->M_News->edit($id_news, $data);
         } else {
             //jika tidak ganti gambar/foto
             $data = [
-                'products_name' => Request()->products_name,
-                'id_categories' => Request()->id_categories,
-                'description'   => Request()->description
+                'id_users'      => Auth::user()->id,
+                'title'         => Request()->title,
+                'news'          => Request()->news,
+                'status'        => Request()->status,
+                'date'          => Request()->date,
             ];
-            $this->M_Products->edit($id_news, $data);
+            $this->M_News->edit($id_news, $data);
         }
 
-        return redirect()->route('products')->with('pesan', 'Data Updated Successfully !');
+        return redirect()->route('news')->with('pesan', 'Data Updated Successfully !');
     }
 
-    public function delete($id_products)
+    public function delete($id_news)
     {
         //hapus atau delete foto
-        $product = $this->M_Products->detail($id_products);
-        if ($product->image <> "") {
-            unlink(public_path('foto_product') . '/' . $product->image);
+        $news = $this->M_News->detail($id_news);
+        if ($news->news_image <> "") {
+            unlink(public_path('foto_news') . '/' . $news->news_image);
         }
-        $this->M_Products->deleteData($id_products);
-        return redirect()->route('products')->with('pesan', 'Data Deleted Successfully !');
+        $this->M_News->deleteData($id_news);
+        return redirect()->route('news')->with('pesan', 'Data Deleted Successfully !');
     }
 }
