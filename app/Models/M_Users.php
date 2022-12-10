@@ -37,4 +37,9 @@ class M_Users extends Model
     {
         return DB::table('users')->count();
     }
+
+    public function checkPassword($password)
+    {
+        return DB::table('users')->where('password', $password)->first();
+    }
 }

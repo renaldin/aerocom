@@ -135,7 +135,7 @@ Dashboard Admin
               <div class="activity-item d-flex">
                 <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
                 <div class="activity-content">
-                  {{ $item->title }}
+                  <strong>{{ $item->title }}</strong> - {{ $item->date }}
                 </div>
               </div>
               @endforeach

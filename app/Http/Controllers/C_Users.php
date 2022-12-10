@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\M_Users;
+use Illuminate\Support\Facades\Auth;
 use PDF; //library pdf
 
 class C_Users extends Controller
@@ -138,5 +139,87 @@ class C_Users extends Controller
         }
         $this->M_Users->deleteData($id_user);
         return redirect()->route('users')->with('pesan', 'Data Deleted Successfully !');
+    }
+
+    public function myProfile()
+    {
+        $id_user = Auth::user()->id;
+
+        if (!$this->M_Users->detail($id_user)) {
+            abort(404);
+        }
+
+        $data = [
+            'sidebarTitle' => 'Users',
+            'user' => $this->M_Users->detail($id_user)
+        ];
+
+        return view('users/v_profile', $data);
+    }
+
+    public function updateProfile($id_user)
+    {
+        Request()->validate([
+            'name'              => 'required',
+            'email'             => 'required',
+            'photo'             => 'mimes:jpg,jpeg,png,bmp|max:1024',
+        ], [
+            'name.required'     => 'Full Name is required !',
+            'email.required'    => 'Email is required !',
+            'photo.mimes'       => 'Photo is jpg, jpeg, png !',
+        ]);
+
+        if (Request()->photo <> "") {
+            $user = $this->M_Users->detail($id_user);
+            if ($user->photo <> "") {
+                unlink(public_path('foto_user') . '/' . $user->photo);
+            }
+
+            $file = Request()->photo;
+            $fileName = date('mdYHis') . Request()->id . '.' . $file->extension();
+            $file->move(public_path('foto_user'), $fileName);
+
+            $data = [
+                'name' => Request()->name,
+                'email' => Request()->email,
+                'photo' => $fileName,
+            ];
+            $this->M_Users->edit($id_user, $data);
+        } else {
+            //jika tidak ganti gambar/foto
+            $data = [
+                'name' => Request()->name,
+                'email' => Request()->email,
+            ];
+            $this->M_Users->edit($id_user, $data);
+        }
+
+        return redirect()->route('profile')->with('pesan', 'Data Updated Successfully !');
+    }
+
+    public function updatePassword($id_user)
+    {
+        Request()->validate([
+            // 'currentPassword'   => 'required',
+            'newPassword'            => 'required',
+        ], [
+            // 'currentPassword.required'  => 'Current Password is required !',
+            'newPassword.required'           => 'New Password is required !',
+        ]);
+
+        // $password = Hash::make(Request()->currentPassword);
+        // $checkPassword = $this->M_Users->checkPassword($password);
+        // dd($checkPassword);
+
+        // if ($checkPassword) {
+        $data = [
+            'password' => Hash::make((Request()->newPassword)),
+        ];
+
+        $this->M_Users->edit($id_user, $data);
+        return redirect()->route('profile')->with('pesanPassword', 'Data Updated Successfully !');
+        // } else {
+        //     return redirect()->route('profile')->with('notPassword', 'Current Password Wrong !');
+        // }
     }
 }
