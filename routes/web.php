@@ -2,16 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\C_Home;
-use App\Http\Controllers\C_Dosen;
 use App\Http\Controllers\C_Users;
 use App\Http\Controllers\C_Categories;
 use App\Http\Controllers\C_Products;
+use App\Http\Controllers\C_News;
 use App\Http\Controllers\C_Mahasiswa;
 use App\Http\Controllers\C_User;
 use App\Http\Controllers\C_Register;
 use App\Http\Controllers\C_Login;
-use App\Http\Controllers\C_Invoice;
-use App\Http\Controllers\ChartJsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,6 +60,4 @@ Route::middleware(['auth', 'level:1'])->group(function () {
     Route::get('/edit-user/{id}', [C_Users::class, 'edit']);
     Route::post('/update-user/{id}', [C_Users::class, 'update']);
     Route::get('/delete-user/{id}', [C_Users::class, 'delete']);
-
-    Route::get('/chartjs', [ChartJsController::class, 'index'])->name('chartjs.index');
 });

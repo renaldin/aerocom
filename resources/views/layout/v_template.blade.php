@@ -31,7 +31,9 @@
    <link rel="stylesheet" href="{{asset('template')}}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
    <link rel="stylesheet" href="{{asset('template')}}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
    <link rel="stylesheet" href="{{asset('template')}}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-  
+
+  <!-- summernote -->
+  <link rel="stylesheet" href="{{ asset('template') }}/plugins/summernote/summernote-bs4.min.css">
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('layout') }}/assets/css/style.css" rel="stylesheet">
@@ -124,6 +126,20 @@
   <script src="{{asset('template')}}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
   <script src="{{asset('template')}}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
   <script src="{{asset('template')}}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+  <!-- Bootstrap 4 -->
+  <script src="{{ asset('template') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Summernote -->
+  <script src="{{ asset('template') }}/plugins/summernote/summernote-bs4.min.js"></script>
+  
+  <!-- Page specific script -->
+  <script>
+    $(function () {
+      // Summernote
+      $('#summernote').summernote()
+    })
+  </script>
+
   <!-- Page specific script -->
   <script>
     $(function () {
@@ -142,6 +158,7 @@
       });
     });
   </script>
+
 </body>
 
 </html>
