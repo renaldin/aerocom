@@ -1,9 +1,9 @@
 @section('title')
-Manage Products
+Manage News
 @endsection
 @extends('layout/v_template')
 @section('page')
-Edit Product
+Edit News
 @endsection
 @section('content')
 <main id="main" class="main">
@@ -24,57 +24,64 @@ Edit Product
       <div class="col-lg-12">
         <div class="card p-3">
           <div class="card-header">
-            <h3 class="card-title">Product Edit Form</h3>
+            <h3 class="card-title">News Edit Form</h3>
           </div>
           <div class="card-body">
             <!-- Multi Columns Form -->
-            <form class="row g-3" action="/update-product/{{$product->id_products}}" method="POST" enctype="multipart/form-data">
+            <form class="row g-3" action="/update-news/{{$news->id_news}}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="col-md-6">
-                <label for="inputName5" class="form-label">Product Name</label>
-                <input type="text" class="form-control" id="inputName5" name="products_name" value="{{ $product->products_name }}" placeholder="Enter Product Name...">
+                <label for="inputName5" class="form-label">Title</label>
+                <input type="text" class="form-control" id="inputName5" name="title" value="{{ $news->title }}" placeholder="Enter Title...">
                 <div class="text-danger">
-                @error('products_name')
+                @error('title')
                   {{ $message}}
                 @enderror
                 </div>
               </div>
               <div class="col-md-6">
-                <label for="inputEmail5" class="form-label">Categorie Name</label>
-                <select id="inputState" class="form-select" name="id_categories"">
-                  <option value="{{ $product->id_categories }}">{{ $product->categories_name }}</option>
-                  @foreach ($categories as$item )
-                    <option value="{{ $item->id_categories }}">{{ $item->categories_name }}</option>
-                  @endforeach
-                </select>
+                <label for="inputName5" class="form-label">Publication Date</label>
+                <input type="date" class="form-control" id="inputName5" name="date" value="{{ $news->date }}" placeholder="Enter Date...">
                 <div class="text-danger">
-                  @error('id_categories')
-                    {{ $message}}
-                  @enderror 
+                @error('date')
+                  {{ $message}}
+                @enderror
                 </div>
               </div>
               <div class="col-md-6">
-                <label for="inputCity" class="form-label">Image</label>
-                <input type="file" class="form-control" id="inputCity" name="image" value="{{ $product->image }}" placeholder="Enter Image...">
+                <label for="inputState" class="form-label">Status</label>
+                <select id="inputState" class="form-select" name="status" value="{{old('status')}}" placeholder="Enter Status..." required>
+                  <option value="{{ $news->status }}" >{{ $news->status }}</option>
+                  <option value="Aktif">Aktif</option>
+                  <option value="Tidak Aktif">Tidak Aktif</option>
+                </select>
                 <div class="text-danger">
-                  @error('image')
+                  @error('status')
                     {{ $message}}
                   @enderror
                 </div>
               </div>
               <div class="col-md-6">
-                <label for="inputCity" class="form-label">Product Image</label>
-                <div class="row">
-                  <div class="col-12">
-                    <img src="{{url('foto_product/'.$product->image)}}" width="100px">
-                  </div>
+                <label for="inputCity" class="form-label">Image</label>
+                <input type="file" class="form-control" id="inputCity" name="news_image" value="{{ old('news_image')}}" placeholder="Enter Image...">
+                <div class="text-danger">
+                  @error('news_image')
+                    {{ $message}}
+                  @enderror
                 </div>
               </div>
               <div class="col-md-6">
-                <label for="inputState" class="form-label">Description</label>
-                <textarea name="description" class="form-control" cols="30" rows="5">{{$product->description}}</textarea>
+              </div>
+              <div class="col-md-6">
+                <img src="{{url('foto_news/'.$news->news_image)}}" width="100px">
+              </div>
+              <div class="col-md-12">
+                <label for="inputState" class="form-label">News</label>
+                <textarea name="news" class="form-control" id="summernote">
+                  {{ $news->news }}
+                </textarea>
                 <div class="text-danger">
-                  @error('description')
+                  @error('news')
                     {{ $message}}
                   @enderror
                 </div>

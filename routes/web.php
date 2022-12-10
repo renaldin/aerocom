@@ -51,6 +51,7 @@ Route::middleware(['auth', 'level:1'])->group(function () {
     Route::post('/insert-news', [C_News::class, 'insert']);
     Route::get('/edit-news/{id}', [C_News::class, 'edit']);
     Route::post('/update-news/{id}', [C_News::class, 'update']);
+    Route::get('/detail-news/{id}', [C_News::class, 'detail']);
     Route::get('/delete-news/{id}', [C_News::class, 'delete']);
 
     // users

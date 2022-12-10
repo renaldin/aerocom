@@ -83,7 +83,7 @@ class C_News extends Controller
     public function update($id_news)
     {
         Request()->validate([
-            'title'         => 'required|unique:news,title',
+            'title'         => 'required',
             'news'          => 'required',
             'status'        => 'required',
             'date'          => 'required',
@@ -128,6 +128,20 @@ class C_News extends Controller
         }
 
         return redirect()->route('news')->with('pesan', 'Data Updated Successfully !');
+    }
+
+    public function detail($id_news)
+    {
+        if (!$this->M_News->detail($id_news)) {
+            abort(404);
+        }
+
+        $data = [
+            'sidebarTitle' => 'News',
+            'news' => $this->M_News->detail($id_news)
+        ];
+
+        return view('news/v_detail', $data);
     }
 
     public function delete($id_news)
