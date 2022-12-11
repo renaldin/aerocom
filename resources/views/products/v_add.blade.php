@@ -41,7 +41,7 @@ Add Product
               </div>
               <div class="col-md-6">
                 <label for="inputEmail5" class="form-label">Categorie Name</label>
-                <select id="inputState" class="form-select" name="id_categories" value="{{ old('id_categories')}}">
+                <select id="inputState" class="form-select" name="id_categories" value="{{ old('id_categories')}}" required>
                   <option>Choose...</option>
                   @foreach ($categories as$item )
                     <option value="{{ $item->id_categories }}">{{ $item->categories_name }}</option>

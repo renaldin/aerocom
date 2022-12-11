@@ -18,7 +18,9 @@ Landing Page
 
         <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
           <h3>Rekam Jejak</h3>
-          <p>Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed minima temporibus laudantium. Soluta voluptate sed facere corporis dolores excepturi. Libero laboriosam sint et id nulla tenetur. Suscipit aut voluptate.</p>
+          <p>
+            PT. Aerocomm adalah sebuah perusahaan yang secara legal sdh berdiri sejak th 2004. Awal berdirinya banyak mengerjakan pekerjaan di PT Telkom. Sejak th 2010 fokus ke IoT baik untuk Public Transportation maupun u yng lain.
+          </p>
 
           <div class="icon-box">
             <div class="icon"><i class="bx bx-atom"></i></div>
@@ -57,42 +59,20 @@ Landing Page
 
       <div class="section-title">
         <h2>Product</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        <p>4 product terbaru yang telah diupdate.</p>
       </div>
 
       <div class="row no-gutters">
 
-        <div class="col-lg-3 col-md-4">
-          <div class="gallery-item">
-            <a href="{{ asset('landing') }}/assets/img/gallery/gallery-1.jpg" class="galleery-lightbox" data-gallery="gallery-item">
-              <img src="{{ asset('landing') }}/assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
-            </a>
+        @foreach ($product as $item)
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="{{ asset('foto_product/'.$item->image) }}" class="galleery-lightbox" data-gallery="gallery-item">
+                <img src="{{ asset('foto_product/'.$item->image) }}" alt="" class="img-fluid">
+              </a>
+            </div>
           </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="gallery-item">
-            <a href="{{ asset('landing') }}/assets/img/gallery/gallery-2.jpg" class="galleery-lightbox" data-gallery="gallery-item">
-              <img src="{{ asset('landing') }}/assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="gallery-item">
-            <a href="{{ asset('landing') }}/assets/img/gallery/gallery-3.jpg" class="galleery-lightbox" data-gallery="gallery-item">
-              <img src="{{ asset('landing') }}/assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="gallery-item">
-            <a href="{{ asset('landing') }}/assets/img/gallery/gallery-4.jpg" class="galleery-lightbox" data-gallery="gallery-item">
-              <img src="{{ asset('landing') }}/assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
-            </a>
-          </div>
-        </div>
+        @endforeach
 
       </div>
 
@@ -106,7 +86,7 @@ Landing Page
 
       <div class="section-title">
         <h2>Partner</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        <p>Partner PT. Aerocomm merupakan perusahaan atau organisasi yang telah melakukan kerjasama dengan PT. Aerocomm. Kerjasama dilakukan untuk mencari keuntungan bersama-sana.</p>
       </div>
 
       <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
@@ -131,52 +111,25 @@ Landing Page
 
       <div class="section-title">
         <h2>News</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        <p>Kami tampilkan 3 berita yang baru diupload. Berita ini merupakan berita informasi tentang PT. Aerocomm.</p>
       </div>
 
       <div class="row portfolio-container">
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <div class="portfolio-wrap">
-            <img src="{{ asset('landing') }}/assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 1</h4>
-              <p>App</p>
-              <div class="portfolio-links">
-                <a href="{{ asset('landing') }}/assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+        
+        @foreach ($news as $item)
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="{{ asset('foto_news/'.$item->news_image) }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>{{ $item->title }}</h4>
+                <p>{{ $item->date }}</p>
+                <div class="portfolio-links">
+                  <a href="/news/{{ $item->id_news }}" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <div class="portfolio-wrap">
-            <img src="{{ asset('landing') }}/assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <div class="portfolio-links">
-                <a href="{{ asset('landing') }}/assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <div class="portfolio-wrap">
-            <img src="{{ asset('landing') }}/assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 2</h4>
-              <p>App</p>
-              <div class="portfolio-links">
-                <a href="{{ asset('landing') }}/assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
+        @endforeach
 
       </div>
 
@@ -189,7 +142,7 @@ Landing Page
 
       <div class="section-title">
         <h2>Contact Us</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        <p></p>
       </div>
 
       <div class="row mt-5">

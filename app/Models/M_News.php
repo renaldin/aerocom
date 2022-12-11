@@ -16,12 +16,13 @@ class M_News extends Model
             ->get();
     }
 
-    public function threeNew($number)
+    public function getLimit($limit, $status = null)
     {
         return DB::table('news')
             ->join('users', 'users.id', '=', 'news.id_users', 'left')
             ->orderBy('id_news', 'DESC')
-            ->limit($number)
+            ->where('status', $status)
+            ->limit($limit)
             ->get();
     }
 
