@@ -3,7 +3,7 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       {{-- <a href="#hero" class="logo"><img src="{{ asset('landing') }}/assets/img/logo.png" alt="" class="img-fluid"></a> --}}
-      <a href="#hero" class="logo">PT. Aerocomm</a>
+      <a href="#hero" class="logo"><img src="{{ asset('gambar/logo.png') }}" alt="" class="img-fluid">&nbsp;&nbsp;&nbsp;PT. Aerocomm</a>
       <!-- Uncomment below if you prefer to use text as a logo -->
       <!-- <h1 class="logo"><a href="index.html">Butterfly</a></h1> -->
 

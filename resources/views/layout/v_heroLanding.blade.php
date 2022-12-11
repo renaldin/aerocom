@@ -9,7 +9,7 @@
           <div><a href="#about" class="btn-get-started scrollto">Get Started</a></div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img">
-          <img src="{{ asset('landing') }}/assets/img/hero-img.png" class="img-fluid" alt="">
+          <img src="{{ asset('gambar/hero.png') }}" class="img-fluid" width="100%" alt="Hero Image">
         </div>
       </div>
     </div>

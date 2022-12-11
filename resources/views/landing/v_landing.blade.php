@@ -13,7 +13,7 @@ Landing Page
 
       <div class="row">
         <div class="col-xl-5 col-lg-6 d-flex justify-content-center video-box align-items-stretch position-relative">
-          <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>
+          <img src="{{ asset('gambar/about.png') }}" width="100%" height="100%" alt="About Image">
         </div>
 
         <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
@@ -21,7 +21,7 @@ Landing Page
           <p>Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed minima temporibus laudantium. Soluta voluptate sed facere corporis dolores excepturi. Libero laboriosam sint et id nulla tenetur. Suscipit aut voluptate.</p>
 
           <div class="icon-box">
-            <div class="icon"><i class="bx bx-gift"></i></div>
+            <div class="icon"><i class="bx bx-atom"></i></div>
             <h4 class="title"><a href="">Legalitas : didirikan sejak 2004 dengan Akta Notarism</a></h4>
           </div>
 
@@ -111,53 +111,13 @@ Landing Page
 
       <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
 
-        <div class="col-lg-3 col-md-4 col-6">
-          <div class="client-logo">
-            <img src="{{ asset('landing') }}/assets/img/clients/client-1.png" class="img-fluid" alt="">
+        @foreach ($partner as $item)
+          <div class="col-lg-3 col-md-4 col-6">
+            <div class="client-logo">
+              <img src="{{ asset('foto_partner/'.$item->partner_image) }}" class="img-fluid" alt="{{ $item->partner_name }}">
+            </div>
           </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-6">
-          <div class="client-logo">
-            <img src="{{ asset('landing') }}/assets/img/clients/client-2.png" class="img-fluid" alt="">
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-6">
-          <div class="client-logo">
-            <img src="{{ asset('landing') }}/assets/img/clients/client-3.png" class="img-fluid" alt="">
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-6">
-          <div class="client-logo">
-            <img src="{{ asset('landing') }}/assets/img/clients/client-4.png" class="img-fluid" alt="">
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-6">
-          <div class="client-logo">
-            <img src="{{ asset('landing') }}/assets/img/clients/client-5.png" class="img-fluid" alt="">
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-6">
-          <div class="client-logo">
-            <img src="{{ asset('landing') }}/assets/img/clients/client-6.png" class="img-fluid" alt="">
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-6">
-          <div class="client-logo">
-            <img src="{{ asset('landing') }}/assets/img/clients/client-7.png" class="img-fluid" alt="">
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-6">
-          <div class="client-logo">
-            <img src="{{ asset('landing') }}/assets/img/clients/client-8.png" class="img-fluid" alt="">
-          </div>
-        </div>
+        @endforeach
 
       </div>
 
