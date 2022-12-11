@@ -13,6 +13,13 @@ class M_Categories extends Model
         return DB::table('categories')->get();
     }
 
+    public function dataForLanding($status)
+    {
+        return DB::table('categories')
+            ->where('status', $status)
+            ->get();
+    }
+
     public function detail($id_categories)
     {
         return DB::table('categories')->where('id_categories', $id_categories)->first();
