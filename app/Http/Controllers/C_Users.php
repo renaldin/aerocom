@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\M_Users;
 use Illuminate\Support\Facades\Auth;
-use PDF; //library pdf
 
 class C_Users extends Controller
 {

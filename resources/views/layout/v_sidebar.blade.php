@@ -34,6 +34,12 @@
         <span>Manage News</span>
       </a>
     </li><!-- End Profile Page Nav -->
+    <li class="nav-item">
+      <a class="nav-link {{ $sidebarTitle === 'Partner' ? '':'collapsed'  }}" href="{{ route('partner') }}">
+        <i class="bi bi-building"></i>
+        <span>Manage Partner</span>
+      </a>
+    </li><!-- End Profile Page Nav -->
 
   </ul>
 </div>

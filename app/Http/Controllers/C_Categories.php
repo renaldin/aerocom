@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\M_Categories;
-use PDF; //library pdf
 
 class C_Categories extends Controller
 {

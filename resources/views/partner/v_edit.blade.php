@@ -1,0 +1,71 @@
+@section('title')
+Manage Partner
+@endsection
+@extends('layout/v_template')
+@section('page')
+Edit Partner
+@endsection
+@section('content')
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1>@yield('title')</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">@yield('title')</a></li>
+        <li class="breadcrumb-item active">@yield('page')</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section dashboard">
+    <div class="row">
+      <!-- Left side columns -->
+      <div class="col-lg-12">
+        <div class="card p-3">
+          <div class="card-header">
+            <h3 class="card-title">Partner Edit Form</h3>
+          </div>
+          <div class="card-body">
+            <!-- Multi Columns Form -->
+            <form class="row g-3" action="/update-partner/{{$partner->id_partner}}" method="POST" enctype="multipart/form-data">
+              @csrf
+              <div class="col-md-12">
+                <label for="inputName5" class="form-label">Partner Name</label>
+                <input type="text" class="form-control" id="inputName5" name="partner_name" value="{{ $partner->partner_name}}" placeholder="Enter Partner Name...">
+                <div class="text-danger">
+                @error('partner_name')
+                  {{ $message}}
+                @enderror
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="inputCity" class="form-label">Partner Image</label>
+                <input type="file" class="form-control" id="inputCity" name="partner_image" value="{{ $partner->partner_image}}" placeholder="Enter Partner Image...">
+                <div class="text-danger">
+                  @error('partner_image')
+                    {{ $message}}
+                  @enderror
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="inputCity" class="form-label">Image</label>
+                <div class="row">
+                  <div class="col-12">
+                    <img src="{{url('foto_partner/'.$partner->partner_image)}}" width="100px">
+                  </div>
+                </div>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+              </div>
+            </form><!-- End Multi Columns Form -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+@endsection
+

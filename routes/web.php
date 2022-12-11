@@ -7,6 +7,7 @@ use App\Http\Controllers\C_Categories;
 use App\Http\Controllers\C_Products;
 use App\Http\Controllers\C_News;
 use App\Http\Controllers\C_Landing;
+use App\Http\Controllers\C_Partner;
 use App\Http\Controllers\C_User;
 use App\Http\Controllers\C_Register;
 use App\Http\Controllers\C_Login;
@@ -64,6 +65,14 @@ Route::middleware(['auth', 'level:1'])->group(function () {
     Route::get('/edit-user/{id}', [C_Users::class, 'edit']);
     Route::post('/update-user/{id}', [C_Users::class, 'update']);
     Route::get('/delete-user/{id}', [C_Users::class, 'delete']);
+
+    // partner
+    Route::get('/partner', [C_Partner::class, 'index'])->name('partner');
+    Route::get('/add-partner', [C_Partner::class, 'add']);
+    Route::post('/insert-partner', [C_Partner::class, 'insert']);
+    Route::get('/edit-partner/{id}', [C_Partner::class, 'edit']);
+    Route::post('/update-partner/{id}', [C_Partner::class, 'update']);
+    Route::get('/delete-partner/{id}', [C_Partner::class, 'delete']);
 
     // profile
     Route::get('/profile', [C_Users::class, 'myProfile'])->name('profile');
