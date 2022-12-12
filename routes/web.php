@@ -26,7 +26,9 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// landing page
 Route::get('/', [C_Landing::class, 'index'])->name('landing');
+Route::get('/product-by-categories/{id}', [C_Landing::class, 'productByCategories']);
 // Route::get('/register', [C_Register::class, 'index']);
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

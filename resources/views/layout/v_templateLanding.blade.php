@@ -39,7 +39,9 @@
 
   @include('layout.v_headerLanding')
 
-  @include('layout.v_heroLanding')
+  @if ($heroTitle === 'Landing Page')
+    @include('layout.v_heroLanding')
+  @endif
 
   <main id="main">
 

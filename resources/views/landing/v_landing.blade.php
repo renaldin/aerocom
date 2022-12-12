@@ -5,8 +5,8 @@ PT. Aerocomm
 @section('page')
 Landing Page
 @endsection
-@section('content')
-  
+@section('content') 
+
   <!-- ======= About Section ======= -->
   <section id="about" class="about">
     <div class="container">

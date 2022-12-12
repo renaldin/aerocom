@@ -21,7 +21,7 @@ class C_Landing extends Controller
     public function index()
     {
         $data = [
-            'sidebarTitle'  => 'Products',
+            'heroTitle'     => 'Landing Page',
             'categories'    => $this->M_Categories->dataForLanding('Aktif'),
             'partner'       => $this->M_Partner->allData(),
             'product'       => $this->M_Products->getLimit(4),
@@ -29,5 +29,16 @@ class C_Landing extends Controller
         ];
 
         return view('landing/v_landing', $data);
+    }
+
+    public function productByCategories($id_categories)
+    {
+        $data = [
+            'heroTitle'     => 'Product',
+            'categories'    => $this->M_Categories->dataForLanding('Aktif'),
+            'product'       => $this->M_Products->getProductByCategories($id_categories),
+        ];
+
+        return view('landing/v_product', $data);
     }
 }

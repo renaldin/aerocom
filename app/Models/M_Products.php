@@ -16,6 +16,15 @@ class M_Products extends Model
             ->get();
     }
 
+    public function getProductByCategories($id_categories)
+    {
+        return DB::table('products')
+            ->join('categories', 'categories.id_categories', '=', 'products.id_categories', 'left')
+            ->orderBy('id_products', 'DESC')
+            ->where('products.id_categories', $id_categories)
+            ->get();
+    }
+
     public function getLimit($limit)
     {
         return DB::table('products')
