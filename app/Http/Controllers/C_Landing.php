@@ -35,10 +35,43 @@ class C_Landing extends Controller
     {
         $data = [
             'heroTitle'     => 'Product',
-            'categories'    => $this->M_Categories->dataForLanding('Aktif'),
+            'categories'    => $this->M_Categories->detail($id_categories),
             'product'       => $this->M_Products->getProductByCategories($id_categories),
         ];
 
         return view('landing/v_product', $data);
+    }
+
+    public function productDetail($id_product)
+    {
+        $data = [
+            'heroTitle'     => 'Product',
+            'product'       => $this->M_Products->detail($id_product),
+        ];
+
+        return view('landing/v_productDetail', $data);
+    }
+
+    public function news()
+    {
+        $data = [
+            'heroTitle'     => 'News',
+            'news' => $this->M_News->allData()
+        ];
+        return view('landing/v_news', $data);
+    }
+
+    public function newsDetail($id_news)
+    {
+        if (!$this->M_News->detail($id_news)) {
+            abort(404);
+        }
+
+        $data = [
+            'heroTitle'     => 'News',
+            'news' => $this->M_News->detail($id_news)
+        ];
+
+        return view('landing/v_newsDetail', $data);
     }
 }

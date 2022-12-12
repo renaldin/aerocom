@@ -68,7 +68,7 @@ Landing Page
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
               <a href="{{ asset('foto_product/'.$item->image) }}" class="galleery-lightbox" data-gallery="gallery-item">
-                <img src="{{ asset('foto_product/'.$item->image) }}" alt="" class="img-fluid">
+                <img src="{{ asset('foto_product/'.$item->image) }}" alt="" width="220px" height="220px">
               </a>
             </div>
           </div>
@@ -119,12 +119,12 @@ Landing Page
         @foreach ($news as $item)
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-              <img src="{{ asset('foto_news/'.$item->news_image) }}" class="img-fluid" alt="">
+              <img src="{{ asset('foto_news/'.$item->news_image) }}" width="220px" height="220px" alt="">
               <div class="portfolio-info">
                 <h4>{{ $item->title }}</h4>
                 <p>{{ $item->date }}</p>
                 <div class="portfolio-links">
-                  <a href="/news/{{ $item->id_news }}" title="More Details"><i class="bx bx-link"></i></a>
+                  <a href="/landing-news/{{ $item->id_news }}" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>

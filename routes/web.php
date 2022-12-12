@@ -29,6 +29,9 @@ Auth::routes();
 // landing page
 Route::get('/', [C_Landing::class, 'index'])->name('landing');
 Route::get('/product-by-categories/{id}', [C_Landing::class, 'productByCategories']);
+Route::get('/product-detail/{id}', [C_Landing::class, 'productDetail']);
+Route::get('/landing-news', [C_Landing::class, 'news'])->name('landing-news');
+Route::get('/landing-news/{id}', [C_Landing::class, 'newsDetail']);
 // Route::get('/register', [C_Register::class, 'index']);
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

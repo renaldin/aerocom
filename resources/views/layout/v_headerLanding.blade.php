@@ -20,7 +20,7 @@
               </ul>
             </li>
             <li><a class="nav-link scrollto" href="#partner">Partner</a></li>
-            <li><a class="nav-link scrollto" href="#news">News</a></li>
+            <li><a class="nav-link scrollto" href="{{ route('landing-news') }}">News</a></li>
             <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
           @else
             <li><a class="nav-link scrollto active" href="{{ route('landing') }}">Kembali ke Landing Page</a></li>
