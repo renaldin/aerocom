@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Des 2022 pada 16.20
+-- Waktu pembuatan: 12 Des 2022 pada 15.29
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.0.19
 
@@ -108,6 +108,32 @@ INSERT INTO `news` (`id_news`, `id_users`, `title`, `news`, `news_image`, `statu
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `partner`
+--
+
+CREATE TABLE `partner` (
+  `id_partner` int(11) NOT NULL,
+  `partner_name` varchar(100) NOT NULL,
+  `partner_image` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `partner`
+--
+
+INSERT INTO `partner` (`id_partner`, `partner_name`, `partner_image`) VALUES
+(1, 'Partner 1', '12112022020834.png'),
+(2, 'Partner 2', '12112022020907.png'),
+(3, 'Partner 3', '12112022020919.png'),
+(5, 'Partner 4', '12112022020931.png'),
+(6, 'Partner 5', '12112022020946.png'),
+(7, 'Partner 6', '12112022021001.png'),
+(8, 'Partner 7', '12112022021013.png'),
+(9, 'Partner 8', '12112022021026.png');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `password_resets`
 --
 
@@ -154,7 +180,15 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id_products`, `id_categories`, `products_name`, `description`, `image`) VALUES
-(4, 1, 'Product 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '121020220018504.png');
+(4, 1, 'Product 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '121120220243284.png'),
+(5, 1, 'Product 2', 'Description Product 2', '12112022024359.png'),
+(6, 3, 'Product 3', 'Description Product 3', '12112022024430.png'),
+(7, 1, 'Product 4', 'Description Product 4', '12112022024537.png'),
+(8, 3, 'Product 5', 'Description Product 5', '12112022024614.png'),
+(9, 3, 'Product 6', 'Descripiton Product 6', '12112022024654.png'),
+(10, 1, 'Product 7', 'Description Product 7', '12112022024753.png'),
+(11, 3, 'Product 8', 'Description Product 8', '12112022024830.png'),
+(12, 3, 'Product 9', 'Description Product 9', '12112022025023.png');
 
 -- --------------------------------------------------------
 
@@ -181,9 +215,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `level`, `photo`) VALUES
 (5, 'Admin PT.Aerocomm', 'admin@gmail.com', NULL, '$2y$10$uuf6Mkz9F4ITVYETB/4/oeydU5cP1WEwAi6SSmVTQ4mNN0rXlWZ1K', NULL, NULL, NULL, 1, '121020221402175.jpg'),
-(7, 'Renaldi Updated', 'renaldiupdated@gmail.com', NULL, '$2y$10$jAD.0RWJQYIXoy0J2ogBxOHNbV9tLoL2OfwSU6VpwaXT2tmyrAVwG', NULL, NULL, NULL, 1, '120820221828297.jpg'),
-(8, 'Renaldi Noviandi', 'renaldin@gmail.com', NULL, '$2y$10$53k.cofFdiN1pHZJlob82ual97dhQG4fXIXzOfDw8erVL2l/lejza', NULL, NULL, NULL, 1, '12092022153345.jpg'),
-(9, 'Renaldi Noviandi', 'renaldinoviandi9@gmail.com', NULL, '$2y$10$5e8FTZTjy9tjzHpSRG5f6emE5u0cWByyUCcMLKzqa1j8MmqrJQxdi', NULL, NULL, NULL, 1, '12102022151702.jpg');
+(7, 'Admin 2', 'admin2@gmail.com', NULL, '$2y$10$PaO12pfwla9PKa.soCLZuO57P45R0oCPFkc0EXGi/HrI28gEXh4EO', NULL, NULL, NULL, 1, '121020221803177.jpg');
 
 --
 -- Indexes for dumped tables
@@ -213,6 +245,12 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`id_news`);
+
+--
+-- Indeks untuk tabel `partner`
+--
+ALTER TABLE `partner`
+  ADD PRIMARY KEY (`id_partner`);
 
 --
 -- Indeks untuk tabel `password_resets`
@@ -270,6 +308,12 @@ ALTER TABLE `news`
   MODIFY `id_news` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT untuk tabel `partner`
+--
+ALTER TABLE `partner`
+  MODIFY `id_partner` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT untuk tabel `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
@@ -279,13 +323,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT untuk tabel `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_products` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_products` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

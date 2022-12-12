@@ -16,6 +16,15 @@ class M_News extends Model
             ->get();
     }
 
+    public function allDataAktif($status)
+    {
+        return DB::table('news')
+            ->join('users', 'users.id', '=', 'news.id_users', 'left')
+            ->orderBy('id_news', 'DESC')
+            ->where('status', $status)
+            ->get();
+    }
+
     public function getLimit($limit, $status = null)
     {
         return DB::table('news')

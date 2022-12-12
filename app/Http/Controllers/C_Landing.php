@@ -56,7 +56,7 @@ class C_Landing extends Controller
     {
         $data = [
             'heroTitle'     => 'News',
-            'news' => $this->M_News->allData()
+            'news' => $this->M_News->allDataAktif('Aktif')
         ];
         return view('landing/v_news', $data);
     }

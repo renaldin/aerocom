@@ -36,7 +36,7 @@ class HomeController extends Controller
             'users' => $this->M_Users->numberOfUsers(),
             'categories' => $this->M_Categories->numberOfCategories(),
             'products' => $this->M_Products->numberOfProducts(),
-            'news' => $this->M_News->threeNew(3),
+            'news' => $this->M_News->getLimit(3, 'Aktif'),
         ];
 
         return view('v_home', $data);
