@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Des 2022 pada 15.29
+-- Waktu pembuatan: 14 Des 2022 pada 23.25
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.0.19
 
